@@ -5,6 +5,10 @@ const regexCodigo = /^\d{8}$/;
 
 const form = document.querySelector('#formRegistro');
 const lista = document.querySelector('#listaRegistros');
+const CLAVE_STORAGE = 'tekio_clientes';
+
+// Cargar registros guardados al abrir la página
+document.addEventListener('DOMContentLoaded', cargarRegistros);
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -30,38 +34,4 @@ form.addEventListener('submit', function (event) {
     mostrarError('errorTelefono', 'Debe tener entre 7 y 10 dígitos');
     valido = false;
   }
-  if (isNaN(edad) || edad < 15 || edad > 100) {
-    mostrarError('errorEdad', 'La edad debe estar entre 15 y 100');
-    valido = false;
-  }
-  if (!regexCodigo.test(codigo)) {
-    mostrarError('errorCodigo', 'Debe tener exactamente 8 dígitos');
-    valido = false;
-  }
-
-  if (!valido) return;
-
-  crearTarjeta({ nombre, correo, telefono, edad, codigo });
-  form.reset();
-});
-
-function mostrarError(id, mensaje) {
-  document.querySelector('#' + id).textContent = mensaje;
-}
-
-function limpiarErrores() {
-  document.querySelectorAll('.error').forEach(el => el.textContent = '');
-}
-
-function crearTarjeta(datos) {
-  const tarjeta = document.createElement('article');
-  tarjeta.classList.add('tarjeta');
-  tarjeta.innerHTML = `
-    <h3>${datos.nombre}</h3>
-    <p>Correo: ${datos.correo}</p>
-    <p>Teléfono: ${datos.telefono}</p>
-    <p>Edad: ${datos.edad}</p>
-    <p>Código: ${datos.codigo}</p>
-  `;
-  lista.appendChild(tarjeta);
-}
+  if (isNaN(edad) || edad
