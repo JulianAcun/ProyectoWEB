@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEKIO · Registro de Clientes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icono">🦝</span>
+        <div>
+          <h1>TEKIO</h1>
+          <p class="slogan">Servicio Técnico Bogotá</p>
+        </div>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#presentacion">Inicio</a></li>
+        <li><a href="#formulario">Registrar cliente</a></li>
+        <li><a href="#registros">Clientes registrados</a></li>
+      </ul>
+    </nav>
+
+    <main class="contenido">
+      <section id="presentacion">
+        <h2>Registro de clientes</h2>
+        <p>Ingresa los datos del cliente para llevar el control de servicios técnicos TEKIO.</p>
+      </section>
+
+      <section id="formulario">
+        <form id="formRegistro" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre">
+            <span class="error" id="errorNombre"></span>
+          </div>
+          <div class="campo">
+            <label for="correo">Correo</label>
+            <input type="text" id="correo" name="correo">
+            <span class="error" id="errorCorreo"></span>
+          </div>
+          <div class="campo">
+            <label for="telefono">Teléfono</label>
+            <input type="text" id="telefono" name="telefono">
+            <span class="error" id="errorTelefono"></span>
+          </div>
+          <div class="campo">
+            <label for="edad">Edad</label>
+            <input type="text" id="edad" name="edad">
+            <span class="error" id="errorEdad"></span>
+          </div>
+          <div class="campo">
+            <label for="codigo">Código de cliente (8 dígitos)</label>
+            <input type="text" id="codigo" name="codigo">
+            <span class="error" id="errorCodigo"></span>
+          </div>
+          <button type="submit">Registrar</button>
+        </form>
+      </section>
+
+      <section id="registros">
+        <h2>Clientes registrados</h2>
+        <div class="lista-registros" id="listaRegistros"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>TEKIO · Servicio Técnico Bogotá — Proyecto Integrador Desarrollo Web</p>
+    </footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
